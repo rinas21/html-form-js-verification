@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form</title>
+</head>
+
+<body>
+  <h2>Basic html form</h2>
+  <form name="myForm" action="" method="post" onsubmit="return validate();">
+    <table border="1">
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" name="name" id="name"></td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td><input type="text" name="address" id="address"></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="email" name="email" id="email"></td>
+      </tr>
+      <tr>
+        <td>Gender:</td>
+        <td><input type="radio" name="male" id="gender">Male</td>
+      </tr>
+      <tr>
+      <tr>
+        <td></td>
+        <td><input type="radio" name="female" id="gender">Female</td>
+      </tr>
+      <tr>
+        <td>Subscriptions:</td>
+        <td><input type="checkbox" name="paid" id="paid" value="paid">Paid</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="checkbox" name="free" id="free" value="free">Free</td>
+      </tr>
+      <tr>
+        <td>Subject count</td>
+        <td>
+          <select name="count" id="count">
+            <option value="-1" selected>Select</option>
+            <option value="1">1</option>
+            <option value="2">3</option>
+            <option value="3">5</option>
+            <option value="4">10</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" name="submit" id="submit" value="submit"></td>
+      </tr>
+    </table>
+  </form>
+  <script>
+    function validate(){
+      var name = document.getElementById("name").value;
+      var address = document.getElementById("address").value;
+      var email = document.getElementById("email").value;
+      var gender = document.querySelector('input[name="gender"]:checked');
+      var subscriptions = document.querySelectorAll('input[name="subscription"]:checked');
+      var count = document.getElementById("count").value;
+
+      if(name ===''){
+        alert("Please enter your name");
+        return false;
+      }
+      if (address === '') {
+        alert("Please enter your address");
+        return false;
+      }
+      if (email === '') {
+        alert("Please enter your email");
+        return false;
+      }
+      if (!gender) {
+        alert("Please select your gender");
+        return false;
+      }
+      if (email === '') {
+        alert("Please enter your email");
+        return false;
+      }
+      if (subscriptions.length === 0) {
+        alert("Please select your subscription");
+        return false;
+      }
+      if (count === '-1') {
+        alert("Please select your count");
+        return false;
+      }
+      return true;
+    
+    }
+  </script>
+</body>
+
+</html>
